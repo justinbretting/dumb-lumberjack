@@ -1,5 +1,5 @@
 
-# Logger
+# Dumb Logger
 
 A simple logger for nodejs. Adds colorization, code location, and timestamps.
 Configurable by module name using environment variables.
