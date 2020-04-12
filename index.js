@@ -42,31 +42,30 @@ function _getContextString() {
 class Logger {
   constructor() {
     let stack = new Error().stack
-    // console.log(`stack`, stack)
     let ctx = _extractContext(stack, 3)
-    
+
     this._tag = ctx.filename
-    
+
     for ( let lvl in LOG_LEVELS ) {
       this[lvl.toLowerCase()] = this._log.bind(this, lvl)
     }
-    
+
     this._setLogLevel()
   }
-  
+
   _setLogLevel() {
     let tag = this._tag.split('.')[0] // strip out suffix
     tag = tag.toUpperCase().replace('-', '_') // CAPITALS_AND_UNDERSCORES
-    
+
     let level = process.env['LOG_LEVEL_'+tag]
-    
+
     if ( level && LOG_LEVELS[level] !== undefined ) {
       this._level = LOG_LEVELS[level].val
     } else {
       this._level = LOG_LEVELS[DEFAULT_LOG_LEVEL].val
     }
   }
-  
+
   _log(level, ...args) {
     if ( this._level >= LOG_LEVELS[level].val ) {
       let dt = new Date().toISOString().replace('T', ' ')
