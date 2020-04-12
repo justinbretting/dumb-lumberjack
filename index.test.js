@@ -1,11 +1,16 @@
 const Logger = require('./index')
 
+const originalEnv = JSON.stringify(process.env)
+
 describe('dumb-lumberjack', () => {
+  let logger
+
   beforeEach(() => {
-    // new comment
+    process.env = JSON.parse(originalEnv);
   })
 
-  test('transforms CSV', () => {
-
+  test('constructs', () => {
+    logger = new Logger()
+    expect(logger._tag).toBe('index.test.js')
   })
 })
