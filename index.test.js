@@ -2,6 +2,7 @@ const Logger = require('./index')
 
 const originalEnv = JSON.stringify(process.env)
 
+// master
 describe('dumb-lumberjack', () => {
   let logger
 
