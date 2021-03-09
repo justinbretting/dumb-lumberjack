@@ -16,7 +16,7 @@ describe('dumb-lumberjack', () => {
   })
 
   test('logs', () => {
-    // log comment
+    // log comment 2
     logger = new Logger()
     logger.warn('warn')
   })

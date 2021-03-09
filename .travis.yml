@@ -1,17 +1,7 @@
-env:
-  global:
-    - CC_TEST_REPORTER_ID=f7d3a510d8573a24c6975e0c0502e418edd26f76547647562f12871513e93be5
-    # hmm, different test report IDs for different repos
 language: node_js
 node_js:
   - 12
 
 before_install:
   - npm i -g npm@6
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
-
-after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - npm i -g codecov
