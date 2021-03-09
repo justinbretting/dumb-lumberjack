@@ -15,9 +15,9 @@ describe('dumb-lumberjack', () => {
     expect(logger._tag).toBe('index.test.js')
   })
 
-  test('logs', () => {
-    // log comment 2
-    logger = new Logger()
-    logger.warn('warn')
-  })
+  // test('logs', () => {
+  //   // log comment 2
+  //   logger = new Logger()
+  //   logger.warn('warn')
+  // })
 })
